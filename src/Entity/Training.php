@@ -7,13 +7,18 @@
  */
 
 namespace Entity;
-use Doctrine\ORM\Mapping as ORM;
+
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Table;
 
 /**
  * Class Training
  * @package Entity
- * @ORM\Entity()
- * @ORM\Table(name="book")
+ * @Entity(repositoryClass="Entity\Repository\TrainingRepository")
+ * @Table(name="book")
  */
 class Training
 {
@@ -21,17 +26,51 @@ class Training
      * Training ID
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @Column(name="id", type="integer")
+     * @Id()
+     * @GeneratedValue(strategy="AUTO")
      */
     private $id;
     /**
      * Training Label
      * @var string
      *
-     * @ORM\Column(name="label", type="string", length=50)
+     * @Column(name="label", type="string", length=50)
      */
     private $label;
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set label
+     *
+     * @param string $label
+     *
+     * @return Training
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get label
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
 }

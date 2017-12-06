@@ -16,7 +16,7 @@ class AcmeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Entity\Acme',
+            'data_class' => 'Entity\Acme.old',
         ));
     }
 

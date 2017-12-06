@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use Entity\Acme;
+use Entity\old;
 use Form\AcmeType;
  
 /**
@@ -40,7 +40,7 @@ class AcmeController implements ControllerProviderInterface {
     public function index(Application $app) {
         
         $em = $app['db.orm.em'];
-        $entities = $em->getRepository('Entity\Acme')->findAll();
+        $entities = $em->getRepository('Entity\Acme.old')->findAll();
 
         return $app['twig']->render('Acme/index.html.twig', array(
             'entities' => $entities
@@ -54,7 +54,7 @@ class AcmeController implements ControllerProviderInterface {
     public function show(Application $app, $id) {
         
         $em = $app['db.orm.em'];
-        $entity = $em->getRepository('Entity\Acme')->find($id);
+        $entity = $em->getRepository('Entity\Acme.old')->find($id);
 
         if (!$entity) {
             $app->abort(404, 'No entity found for id '.$id);
@@ -72,7 +72,7 @@ class AcmeController implements ControllerProviderInterface {
     public function create(Application $app, Request $request) {
 
         $em = $app['db.orm.em'];
-        $entity = new Acme();
+        $entity = new old();
 
         $form = $app['form.factory']->create(new AcmeType(), $entity);
         $form->handleRequest($request);
@@ -98,7 +98,7 @@ class AcmeController implements ControllerProviderInterface {
     public function update(Application $app, Request $request, $id) {
         
         $em = $app['db.orm.em'];
-        $entity = $em->getRepository('Entity\Acme')->find($id);
+        $entity = $em->getRepository('Entity\Acme.old')->find($id);
 
         if (!$entity) {
             $app->abort(404, 'No entity found for id '.$id);
@@ -128,7 +128,7 @@ class AcmeController implements ControllerProviderInterface {
     public function delete(Application $app, $id) {
         
         $em = $app['db.orm.em'];
-        $entity = $em->getRepository('Entity\Acme')->find($id);
+        $entity = $em->getRepository('Entity\Acme.old')->find($id);
 
         if (!$entity) {
             $app->abort(404, 'No entity found for id '.$id);

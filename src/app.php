@@ -37,10 +37,11 @@ $app->register(new SessionServiceProvider(), array(
 $app->register(new DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'        => 'pdo_mysql',
-        'host'          => 'localhost',
-        'dbname'        => 'xxx',
-        'user'          => 'xxx',
-        'password'      => 'xxx',
+        'host'          => '54.36.182.179',
+        'dbname'        => 'groupe_A',
+        'user'          => 'cdi',
+        'password'      => 'cdi2017',
+        'port'          => '3306'
     ),
 ));
 
