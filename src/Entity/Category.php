@@ -7,46 +7,30 @@
  */
 
 namespace Entity;
+use Doctrine\ORM\Mapping as ORM;
 
-
+/**
+ * Class Category
+ * @package Entity
+ * @ORM\Entity()
+ * @ORM\Table(name="category")
+ */
 class Category
 {
     /**
      * Category ID
      * @var integer
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * Category Label
      * @var string
+     * @ORM\Column(name="label", type="string", length=255)
      */
     private $label;
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-    /**
-     * @param int $id
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-    /**
-     * @return string
-     */
-    public function getLabel(): string
-    {
-        return $this->label;
-    }
-    /**
-     * @param string $label
-     */
-    public function setLabel(string $label)
-    {
-        $this->label = $label;
-    }
+
+
 }

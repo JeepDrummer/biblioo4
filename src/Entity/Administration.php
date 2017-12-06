@@ -7,83 +7,48 @@
  */
 
 namespace Entity;
+use Doctrine\ORM\Mapping as ORM;
 
 
+/**
+ * Class Administration
+ * @package Entity
+ * @ORM\Entity()
+ * @ORM\Table(name="administration")
+ */
 class Administration
 {
+
+    /**
+     * @var integer
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     protected $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="firstname", type="string", length=50)
+     */
     protected $firstname;
+
+    /**
+     * @var string
+     * @ORM\Column(name="lastname", type="string", length=50)
+     */
     protected $lastname;
+
+    /**
+     * @var string
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
     protected $email;
+
+    /**
+     * @var string
+     * @ORM\Column(name="password", type="string", length=255)
+     */
     protected $password;
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-    /**
-     * @return mixed
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-    /**
-     * @param mixed $firstname
-     */
-    public function setFirstname($firstname): void
-    {
-        $this->firstname = $firstname;
-    }
-    /**
-     * @return mixed
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-    /**
-     * @param mixed $lastname
-     */
-    public function setLastname($lastname): void
-    {
-        $this->lastname = $lastname;
-    }
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email): void
-    {
-        $this->email = $email;
-    }
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password): void
-    {
-        $this->password = $password;
-    }
+
+
 }
