@@ -1,0 +1,17 @@
+.card {
+    margin: 1rem;
+    flex-direction: row;
+}
+
+.card img{
+    max-width : 200px;
+}
+
+.btn-primary.disabled{
+    background-color: grey;
+    border-color: grey;
+}
+
+input[type=checkbox].nav-item-box {
+    margin: 0.6rem 0 0.5rem 0.5rem;
+}
